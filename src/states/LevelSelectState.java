@@ -78,8 +78,7 @@ public class LevelSelectState extends State {
 	public void draw(Graphics2D g2d) {
 		g2d.drawImage(new ImageIcon(this.getClass().getResource("/div/test.png")).getImage(), 0,0, null);
 		backButton.draw(g2d);
-		for(Button b : levelButtons) {
+		for(Button b : levelButtons)
 			b.draw(g2d);
-		}
 	}
 }
