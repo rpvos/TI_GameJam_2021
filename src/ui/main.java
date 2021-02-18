@@ -16,7 +16,7 @@ public class main {
 		JFrame frame = new JFrame("Tower Defence");
 		frame.setMinimumSize(new Dimension((int)width, (int)height));
 		frame.setExtendedState(Frame.MAXIMIZED_BOTH);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setContentPane(new TowerDefence());
 		frame.setVisible(true);
