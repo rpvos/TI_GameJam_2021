@@ -16,7 +16,7 @@ public abstract class Tower extends GameObject {
 
 	public int cost = 75;
 	protected double fireDelay = 0.25;
-	protected int dmg = 2;
+	protected int dmg = 20;
 	public int upgradeCost;
 	public int level = 1;
 	public double speedIncrease= 1.2;
@@ -25,10 +25,11 @@ public abstract class Tower extends GameObject {
 	protected double range = 200;
 	private double fireTimer = 0;
 
+	public final int levelSellected;
 
-
-	public Tower(String image) {
+	public Tower(String image,int levelSellected) {
 		super(image, 1,1);
+		this.levelSellected = levelSellected;
 	}
 
 	@Override
@@ -51,6 +52,7 @@ public abstract class Tower extends GameObject {
 		projectile.y = y;
 		game.addProjectile(projectile);
 	}
+
 	public void levelUp(){
 		level++;
 		upgradeCost *= costIncrease;

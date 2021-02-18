@@ -17,6 +17,7 @@ import java.awt.*;
 import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
@@ -59,7 +60,7 @@ public class Game {
 		this.level = level;
 		map = new TiledMap("/maps/" + level.map);
 		initializeTowerTemplates();
-		Image img =  new ImageIcon(this.getClass().getResource("/div/wood.png")).getImage();
+		Image img =  new ImageIcon(this.getClass().getResource("/div/buttonBackground.jpg")).getImage();
 		wood = ((ToolkitImage) img).getBufferedImage();
 		chargePowerUps();
 	}
@@ -99,9 +100,10 @@ public class Game {
 			try
 			{
 				if(!Modifier.isAbstract(towerTemplates[i].getModifiers())) {
-					Tower t = (Tower) towerTemplates[i].newInstance();
-					t.centerX = t.images[0].getWidth()/2;
-					buildTowers[ii++] = t;
+						Tower t = (Tower) towerTemplates[i].newInstance();
+						t.centerX = t.images[0].getWidth() / 2;
+						buildTowers[ii++] = t;
+
 				}
 			}
 			catch(Exception e)
@@ -334,6 +336,7 @@ public class Game {
 
 
 	}
+
 	private void TowerUpgrade(){
 		Tower T = findTower();
 		if(T != null) {
@@ -343,6 +346,7 @@ public class Game {
 			}
 		}
 	}
+
 	private Tower findTower(){
 		for (Tower T: towers ) {
 			if(T.x == towerUpgradeX &&	T.y == towerUpgradeY){
@@ -351,6 +355,7 @@ public class Game {
 		}
 		return null;
 	}
+
 	/**
 	 * Draws the game
 	 * @param g2d The graphics object to draw on
@@ -386,17 +391,19 @@ public class Game {
 			int y = towerBuildY + 50;
 			for(Tower t : buildTowers)
 			{
-				Area s = new Area(new RoundRectangle2D.Double(x, y-40, 128, 160, 5,5));
-				s.intersect(new Area(buildWindow));
-				g2d.setClip(s);
-				t.x = x;
-				t.y = y+30;
-				t.draw(g2d);
-				g2d.setFont(new Font("Segoe UI", Font.BOLD, 20));
-				g2d.drawString(t.cost + "", x, y-10);
-				g2d.setClip(null);
-				g2d.draw(s);
-				x+=130;
+				if (t.levelSellected == level.levelNumber) {
+					Area s = new Area(new RoundRectangle2D.Double(x, y - 40, 128, 160, 5, 5));
+					s.intersect(new Area(buildWindow));
+					g2d.setClip(s);
+					t.x = x;
+					t.y = y + 30;
+					t.draw(g2d);
+					g2d.setFont(new Font("Segoe UI", Font.BOLD, 20));
+					g2d.drawString(t.cost + "", x, y - 10);
+					g2d.setClip(null);
+					g2d.draw(s);
+					x += 130;
+				}
 			}
 		}
 		if(towerUpgrade) {

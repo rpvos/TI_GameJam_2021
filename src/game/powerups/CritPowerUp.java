@@ -7,32 +7,16 @@ public class CritPowerUp extends PowerUp {
 
     public CritPowerUp()
     {
-        super("/powerups/crit.png", 10, 250, 100, 100);
-        this.rechargeTime = 10;
-        this.activeTime = 5;
+        super("/powerups/time.png", 10, 250, 100, 100);
+        this.rechargeTime = 15;
+        this.activeTime = 3;
         this.button.setRound();
     }
 
     @Override
     public void effect()
     {
-        ArrayList<Tower> towers = this.game.getTowers();
-        for(Tower tower : towers)
-        {
-            int damage = tower.getDamage();
-            tower.setDamage(damage * 5);
-        }
-    }
-
-    @Override
-    public void deActivate()
-    {
-        ArrayList<Tower> towers = this.game.getTowers();
-        for(Tower tower : towers)
-        {
-            int damage = tower.getDamage();
-            tower.setDamage(damage / 5);
-        }
+        this.game.GetEnemies().clear();
     }
 
 }

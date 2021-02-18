@@ -14,10 +14,10 @@ public class MainMenuState extends State {
 	BufferedImage wood;
 	public void init()
 	{
-		startButton = new Button("Start", towerDefence.getWidth()/2-200, towerDefence.getHeight()/2-100, 400, 100);
+		startButton = new Button("Start", towerDefence.getWidth()/2+50, towerDefence.getHeight()/2-100, 400, 100);
 
-		quitButton = new Button("quit", towerDefence.getWidth()/2-200, towerDefence.getHeight()/2+100, 400, 100);
-		Image img =  new ImageIcon(this.getClass().getResource("/div/wood.png")).getImage();
+		quitButton = new Button("quit", towerDefence.getWidth()/2+50, towerDefence.getHeight()/2+100, 400, 100);
+		Image img =  new ImageIcon(this.getClass().getResource("/div/buttonBackground.jpg")).getImage();
 		wood = ((ToolkitImage) img).getBufferedImage();
 	}
 
@@ -38,16 +38,16 @@ public class MainMenuState extends State {
 
 	@Override
 	public void draw(Graphics2D g2d) {
-		g2d.drawImage(new ImageIcon(this.getClass().getResource("/div/MainMenu.png")).getImage(), 0,0, null);
+		g2d.drawImage(new ImageIcon(this.getClass().getResource("/div/stappenplan.jpg")).getImage(), 0,0, null);
 		g2d.setColor(Color.black);
-		g2d.fill(new Rectangle2D.Double(towerDefence.getWidth()/2-290,210,600,200));
+		g2d.fill(new Rectangle2D.Double(towerDefence.getWidth()/2-40,210,600,200));
 		TexturePaint sign = new TexturePaint(wood, new Rectangle(200,100));
 		g2d.setPaint(sign);
-		g2d.fillRect(towerDefence.getWidth()/2-300, 200, 600,200);
+		g2d.fillRect(towerDefence.getWidth()/2-50, 200, 600,200);
 		//g2d.setColor(new Color(138,7,7));
 		g2d.setColor(Color.black);
 		g2d.setFont(new Font("Segoe UI", Font.PLAIN, 72));
-		g2d.drawString("Tower Defence" , towerDefence.getWidth()/2-250,320);
+		g2d.drawString("Virus Defence" , towerDefence.getWidth()/2,320);
 		startButton.draw(g2d);
 		quitButton.draw(g2d);
 	}

@@ -7,14 +7,15 @@ import java.util.ArrayList;
  */
 public abstract class Level{
 
+	public int levelNumber;
 	public String map;
 	public ArrayList<Wave> waves = new ArrayList<>();
 	public int startingGold = 100;
 	public int lives = 5;
 
-	Level()
+	Level(int levelNumber)
 	{
-
+		this.levelNumber = levelNumber;
 	}
 
 

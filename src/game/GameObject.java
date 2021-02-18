@@ -20,6 +20,7 @@ public class GameObject
 	private int sheetHeight;
 	protected int frame;
 	public double centerX = 0, centerY = 0;
+	public double scaleX = 1, scaleY =1;
 
 
 	protected int getFrameCount() { return sheetWidth; }
@@ -62,6 +63,7 @@ public class GameObject
 		AffineTransform tx = new AffineTransform();
 		tx.translate(x,y);
 		tx.rotate(angle);
+		tx.scale(scaleX,scaleY);
 		tx.translate(-images[frame].getWidth()/2, -images[frame].getHeight()/2);
 		tx.translate(centerX, centerY);
 		g2d.drawImage(images[frame], tx, null);

@@ -5,12 +5,13 @@ import game.enemies.Enemy;
 /**
  * Created by johan on 11-4-2017.
  */
-public class ArrowProjectile extends DirectProjectile {
-	public ArrowProjectile(Enemy target, int damage) {
-		super("/projectiles/arrow.png", target);
-		centerX = -25;
+public class VaccinProjectile extends DirectProjectile {
+	public VaccinProjectile(Enemy target, int damage) {
+		super("/projectiles/vaccin.png", target);
 		speed = 25;
 		freezeTime = 0.1;
+		scaleX = 0.1;
+		scaleY = 0.1;
 		dmg = damage;
 	}
 

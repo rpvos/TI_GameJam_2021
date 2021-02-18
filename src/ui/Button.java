@@ -15,7 +15,7 @@ public class Button {
 	String text;
 	int x,y,width,height;
 	boolean square = true;
-	Image img = new ImageIcon(this.getClass().getResource("/div/wood.png")).getImage();
+	Image img = new ImageIcon(this.getClass().getResource("/div/buttonBackground.jpg")).getImage();
 
 	public Button(String text, int x, int y, int width, int height)
 	{
